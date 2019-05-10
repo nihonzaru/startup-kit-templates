@@ -136,11 +136,11 @@ Parameters:
     MaxLength: 255
     ConstraintDescription: Value must be between 1 and 255 characters
 
-  GitHubSourceRepo:
+  GitSourceRepo:
     Type: String
     Description: GitHub source repository - must contain a Dockerfile in the base
 
-  GitHubBranch:
+  GitBranch:
     Type: String
     Default: master
     Description: GitHub repository branch to trigger builds
@@ -531,8 +531,8 @@ Metadata:
           - SeedDockerImage
           - GitHubUser
           - GitHubToken
-          - GitHubSourceRepo
-          - GitHubBranch
+          - GitSourceRepo
+          - GitBranch
       - Label:
           default: Elastic Container Registry
         Parameters:
@@ -565,9 +565,9 @@ Metadata:
         default: Tagged Images Max
       DaysToRetainUntaggedContainerImages:
         default: Untagged Images
-      GitHubSourceRepo:
+      GitSourceRepo:
         default: GitHub Repo
-      GitHubBranch:
+      GitBranch:
         default: GitHub Branch
       GitHubUser:
         default: GitHub User
@@ -736,8 +736,8 @@ Resources:
         AppProtocol: !Ref AppProtocol
         SSLCertificateArn: !Ref SSLCertificateArn
         HealthCheckPath: !Ref HealthCheckPath
-        GitHubSourceRepo: !Ref GitHubSourceRepo
-        GitHubBranch: !Ref GitHubBranch
+        GitSourceRepo: !Ref GitSourceRepo
+        GitBranch: !Ref GitBranch
         GitHubToken: !Ref GitHubToken
         GitHubUser: !Ref GitHubUser
         CodeBuildDockerImage: !Ref CodeBuildDockerImage
